@@ -12,13 +12,8 @@ const CustomizeGrid = ({ columsData, rowData, width, height, maxHeight }) => {
   const [colunsDataState, setColunsDataState] = useState([]);
 
   useEffect(() => {
-    if (rowData && rowData.length > 0) {
-      setRowDataState(rowData);
-    }
-
-    if (columsData && columsData.length > 0) {
-      setColunsDataState(columsData);
-    }
+    setRowDataState(rowData || []);
+    setColunsDataState(columsData || []);
   }, [columsData, rowData]);
 
   const theme = themeQuartz.withParams({

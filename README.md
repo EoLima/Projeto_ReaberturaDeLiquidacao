@@ -1,5 +1,5 @@
 <div align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=ANDAMENTO&color=RED&style=for-the-badge"/>
+<img src="http://img.shields.io/static/v1?label=STATUS&message=ANDAMENTO&color=red&style=for-the-badge"/>
 </div>
 
 # Projeto: Reabertura de Liquidação

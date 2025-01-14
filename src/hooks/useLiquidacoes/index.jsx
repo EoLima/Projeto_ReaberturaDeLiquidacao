@@ -18,7 +18,6 @@ const LiquidacoesContext = createContext();
 export const LiquidacoesProvider = ({ children }) => {
   const { setIsLoading } = useLoadingStore();
   const formFiltrosRef = useRef(null);
-  const [liquidacaoSelecionada, setLiquidacaoSelecionada] = useState(null);
   const [listaLiquidacoes, setListaLiquidacoes] = useState([]);
 
   const buscarLiquidacoes = async () => {
@@ -37,7 +36,6 @@ export const LiquidacoesProvider = ({ children }) => {
         motorista
       );
       setListaLiquidacoes(response);
-      console.log(listaLiquidacoes);
     } catch (err) {
       toast.error(err);
     } finally {
@@ -67,12 +65,10 @@ export const LiquidacoesProvider = ({ children }) => {
       formFiltrosRef,
       listaLiquidacoes,
       setListaLiquidacoes,
-      setLiquidacaoSelecionada,
-      liquidacaoSelecionada,
       buscarLiquidacoes,
       lidarComReabrirLiquidacao,
     }),
-    [listaLiquidacoes, liquidacaoSelecionada]
+    [listaLiquidacoes]
   );
 
   return (
