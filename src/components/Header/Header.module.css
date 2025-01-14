@@ -1,0 +1,114 @@
+@import '../../styles/colors.css';
+
+.container {
+  width: auto;
+  height: 63px;
+  background-color: var(--White);
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--Purple);
+}
+
+.container_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+}
+
+.nav_menu {
+  width: 19px;
+  height: 8px;
+}
+
+.nav_logo {
+  width: auto;
+  height: 50px;
+  border-right: 1px solid #eee;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.container_center {
+  display: flex;
+  flex-direction: column;
+}
+
+.center_sub {
+  height: auto;
+  width: auto;
+  display: flex;
+  padding: 5px;
+}
+
+.center_sub p {
+  margin: 0;
+  padding: 0;
+}
+
+.center_img {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.container_aside {
+  display: flex;
+  border-left: 1px solid #eee;
+  padding-left: 20px;
+}
+
+.sub_aside {
+  display: block;
+  width: 170px;
+  text-align: right;
+  margin: 0 10px;
+}
+
+.sub_aside p {
+  display: block;
+  margin-top: 4px;
+}
+
+.sub_aside span {
+  margin-bottom: 2px;
+}
+
+.aside_button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background: none;
+}
+
+.button_power {
+  width: 35px;
+  height: 35px;
+}
+
+.button_circles {
+  width: 15px;
+  height: 5px;
+}
+
+.titles {
+  color: var(--Cinza, #6c6b6b);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.titles_date {
+  color: var(--Cinza-Claro, #c6c3c3);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

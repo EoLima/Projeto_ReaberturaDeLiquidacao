@@ -1,0 +1,30 @@
+@import "../../styles/colors.css";
+
+.container {
+  width: 450px;
+  height: 60px;
+}
+
+.container_label {
+  display: flex;
+  flex-direction: column;
+}
+
+.label_title {
+  color: var(--Gray, #6c6b6b);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 6px;
+}
+
+.label_select {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+}

@@ -1,0 +1,67 @@
+@import "../../styles/colors.css";
+
+button {
+  border: 0;
+  background: none;
+}
+
+.container {
+  background-color: var(--White);
+  width: auto;
+  height: 88vh;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.title_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  padding-top: 3px;
+}
+
+.title {
+  color: var(--Purple, #61098a);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+}
+
+.close {
+  width: 18px;
+  height: 18px;
+}
+
+.search_container {
+  margin-top: 3px;
+  display: flex;
+  width: 99.2%;
+  height: 30px;
+  align-items: center;
+  background-color: var(--Purple);
+  padding-left: 5px;
+}
+
+.search {
+  width: 20px;
+  height: 20px;
+  padding-top: 3px;
+}
+
+.form_container {
+  margin: 20px;
+}
+
+.form_sub_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.grid_container {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,69 @@
+@import "../../styles/colors.css";
+
+.container {
+  width: 450px;
+  height: 60px;
+}
+
+.container_label {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.title {
+  color: var(--Gray, #6c6b6b);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 6px;
+}
+
+.container_input {
+  display: flex;
+}
+
+.container_input div {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  appearance: none; /* Remove o estilo padrão do checkbox */
+  -webkit-appearance: none;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #ccc; /* Borda inicial */
+  border-radius: 4px; /* Para bordas arredondadas */
+  cursor: pointer;
+  background-color: #fff; /* Cor inicial */
+  transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.input:checked {
+  background-color: var(--Lilac); /* Cor de fundo quando marcado */
+  border-color: var(--Lilac); /* Alinha a borda à cor do fundo */
+}
+
+.input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 15px;
+  display: block;
+  text-align: center;
+  justify-items: center;
+  line-height: 17px;
+}
+
+.input_title {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  padding-left: 3px;
+}

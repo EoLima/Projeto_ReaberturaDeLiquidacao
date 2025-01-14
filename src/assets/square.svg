@@ -1,0 +1,20 @@
+<svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_7_89)">
+<rect x="1" y="1" width="2.5" height="2.58503" fill="#6C6B6B"/>
+<rect x="4.75" y="1" width="2.5" height="2.58503" fill="#6C6B6B"/>
+<rect x="8.5" y="1" width="2.5" height="2.58503" fill="#6C6B6B"/>
+<rect x="1" y="4.23126" width="2.5" height="2.58503" fill="#6C6B6B"/>
+<rect x="4.75" y="4.23126" width="2.5" height="2.58503" fill="#6C6B6B"/>
+<rect x="8.5" y="4.23126" width="2.5" height="2.58503" fill="#6C6B6B"/>
+<rect x="1" y="7.46259" width="2.5" height="2.58503" fill="#6C6B6B"/>
+<rect x="4.75" y="7.46259" width="2.5" height="2.58503" fill="#6C6B6B"/>
+<rect x="8.5" y="7.46259" width="2.5" height="2.58503" fill="#6C6B6B"/>
+</g>
+<defs>
+<filter id="filter0_f_7_89" x="0.6" y="0.6" width="10.8" height="9.84761" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="0.2" result="effect1_foregroundBlur_7_89"/>
+</filter>
+</defs>
+</svg>
