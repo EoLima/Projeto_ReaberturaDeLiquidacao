@@ -1,3 +1,4 @@
+import { useField } from "@unform/core";
 import styles from "./CustomizeCheckbox.module.css";
 import { useEffect, useState } from "react";
 
@@ -10,7 +11,8 @@ const CustomizeCheckbox = ({
   allowMultiple,
   defaultValue,
 }) => {
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState([defaultValue.value]);
+  const { fieldName, registerField } = useField(name);
 
   const handleCheckboxChange = (e) => {
     let value = Number(e.target.value);
@@ -18,7 +20,9 @@ const CustomizeCheckbox = ({
 
     if (allowMultiple) {
       setSelectedOptions((prev) =>
-        checked ? [...prev, value] : prev.filter((v) => v !== value)
+        checked
+          ? [...prev, value]
+          : prev.filter((selected) => selected !== value)
       );
     } else {
       setSelectedOptions(checked ? [value] : []);
@@ -39,6 +43,25 @@ const CustomizeCheckbox = ({
     }
   }, [defaultValue, allowMultiple]);
 
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      getValue: () => {
+        return allowMultiple ? selectedOptions : selectedOptions[0] || null;
+      },
+      setValue: (_, newValue) => {
+        setSelectedOptions(
+          allowMultiple
+            ? Array.isArray(newValue)
+              ? newValue
+              : [newValue]
+            : [newValue]
+        );
+      },
+      clearValue: () => setSelectedOptions([]),
+    });
+  }, [fieldName, registerField, selectedOptions, allowMultiple]);
+
   return (
     <div className={styles.container}>
       <label className={styles.container_label}>
@@ -52,20 +75,19 @@ const CustomizeCheckbox = ({
                 required={isRequired}
                 className={styles.input}
                 type="checkbox"
-                id={details.name}
+                id={`${name}-${details.value}`}
                 value={details.value}
                 onChange={handleCheckboxChange}
                 checked={selectedOptions.includes(details.value)}
               />
-              <label className={styles.input_title} htmlFor={details.name}>
+              <label
+                className={styles.input_title}
+                htmlFor={`${name}-${details.value}`}
+              >
                 {details.name}
               </label>
             </div>
           ))}
-          {readOnly &&
-            selectedOptions.map((value) => (
-              <input key={value} type="hidden" name={name} value={value} />
-            ))}
         </div>
       </label>
     </div>

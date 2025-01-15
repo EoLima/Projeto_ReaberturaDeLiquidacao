@@ -46,6 +46,10 @@ button {
   padding-left: 5px;
 }
 
+.search_container button {
+  cursor: pointer;
+}
+
 .search {
   width: 20px;
   height: 20px;
@@ -53,15 +57,43 @@ button {
 }
 
 .form_container {
-  margin: 20px;
+  margin: 22px;
 }
 
 .form_sub_container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
+
+.date_container {
+  display: flex;
+  align-items: last baseline;
+  gap: 12px;
+}
+
+.date_container span{
+  display: flex;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 .grid_container {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 599px) {
+  .form_sub_container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1600px) {
+  .form_sub_container {
+    justify-content: center;
+  }
 }

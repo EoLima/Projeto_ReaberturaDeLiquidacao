@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@unform/web": "^2.1.6",
     "ag-grid-react": "^33.0.3",
     "axios": "^1.7.9",
     "reabertura-liquidacao": "file:",

@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+import { useField } from "@unform/core";
 import styles from "./CustomizeInput.module.css";
 
 const CustomizeInput = ({
@@ -8,6 +10,17 @@ const CustomizeInput = ({
   isRequired,
   placeholder,
 }) => {
+  const inputRef = useRef(null);
+  const { fieldName, registerField } = useField(name);
+
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputRef.current,
+      path: "value",
+    });
+  }, [fieldName, registerField]);
+
   return (
     <div className={styles.container}>
       <label className={styles.container_label}>
@@ -16,6 +29,7 @@ const CustomizeInput = ({
           className={styles.input}
           placeholder={placeholder}
           type={type}
+          ref={inputRef}
           name={name}
           required={isRequired}
           readOnly={readOnly}

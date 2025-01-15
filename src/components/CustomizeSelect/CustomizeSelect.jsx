@@ -1,7 +1,8 @@
 import Select from "react-select";
 import styles from "./CustomizeSelect.module.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
+import { useField } from "@unform/core";
 
 const CustomizeSelect = ({
   name,
@@ -12,6 +13,26 @@ const CustomizeSelect = ({
   defaultValue,
 }) => {
   const [selectedOption, setSelectedOption] = useState(defaultValue);
+
+  const inputRef = useRef(null);
+  const { fieldName, registerField } = useField(name);
+
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputRef.current,
+      getValue: () => {
+        return selectedOption ? selectedOption.value : "";
+      },
+      setValue: (_, newValue) => {
+        const option = list.find((item) => item.value === newValue);
+        setSelectedOption(option || null);
+      },
+      clearValue: () => {
+        setSelectedOption(null);
+      },
+    });
+  }, [fieldName, registerField, selectedOption, list]);
 
   useEffect(() => {
     setSelectedOption(defaultValue);
@@ -26,6 +47,7 @@ const CustomizeSelect = ({
       <label className={styles.container_label}>
         <span className={styles.label_title}>{label}</span>
         <Select
+          ref={inputRef}
           placeholder=""
           isDisabled={readOnly}
           isClearable={true}
@@ -45,13 +67,6 @@ const CustomizeSelect = ({
             },
           })}
         ></Select>
-        {readOnly && (
-          <input
-            type="hidden"
-            name={name}
-            value={selectedOption ? selectedOption.value : ""}
-          />
-        )}
       </label>
     </div>
   );

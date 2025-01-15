@@ -28,3 +28,10 @@
   line-height: normal;
   text-transform: uppercase;
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 350px;
+    height: 60px;
+  }
+}

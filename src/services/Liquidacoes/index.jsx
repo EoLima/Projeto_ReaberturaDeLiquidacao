@@ -3,8 +3,10 @@ import { mockLiquidacoes } from "../../mocks/Liquidacoes";
 export const listarLiquidacoes = (
   tipo,
   status,
-  dataEmissao,
-  dataLiberacao,
+  dataEmissaoInicial,
+  dataEmissaoFinal,
+  dataLiberacaoInicial,
+  dataLiberacaoFinal,
   rota,
   motorista
 ) => {
@@ -14,10 +16,18 @@ export const listarLiquidacoes = (
         return (
           liquidacao.tipo === Number(tipo) &&
           liquidacao.status === Number(status) &&
-          (!dataEmissao || liquidacao.dataEmissao === dataEmissao) &&
-          (!dataLiberacao || liquidacao.dataLiberacao === dataLiberacao) &&
+          (!dataEmissaoInicial ||
+            (liquidacao.emissao >= dataEmissaoInicial &&
+              (dataEmissaoFinal
+                ? liquidacao.emissao <= dataEmissaoFinal
+                : true))) &&
+          (!dataLiberacaoInicial ||
+            (liquidacao.liberacao >= dataLiberacaoInicial &&
+              (dataLiberacaoFinal
+                ? liquidacao.liberacao <= dataLiberacaoFinal
+                : true))) &&
           (!rota || liquidacao.rota === rota) &&
-          (!motorista || liquidacao.motorista === motorista)
+          (!motorista || liquidacao.id_motorista === motorista)
         );
       });
       resolve(liquidacoes);

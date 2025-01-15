@@ -9,12 +9,17 @@ import undoArrow from "../../assets/undo-arrow.svg";
 import { useLiquidacoes } from "../../hooks/useLiquidacoes";
 import { useRotas } from "../../hooks/useRotas";
 import { useMotoristas } from "../../hooks/useMotoristas";
+import { Form } from "@unform/web";
 
 const Main = () => {
-  const { listaMotoristas, setMotorista } = useMotoristas();
-  const { listaRotas, setRotaSelecionada } = useRotas();
-  const { formFiltrosRef, listaLiquidacoes, lidarComReabrirLiquidacao } =
-    useLiquidacoes();
+  const { listaMotoristas } = useMotoristas();
+  const { listaRotas } = useRotas();
+  const {
+    formFiltrosRef,
+    listaLiquidacoes,
+    lidarComReabrirLiquidacao,
+    buscarLiquidacoes,
+  } = useLiquidacoes();
 
   const tipos = [
     { id: 0, label: "Pré-Venda", value: 1 },
@@ -82,12 +87,19 @@ const Main = () => {
         </button>
       </div>
       <div className={styles.search_container}>
-        <button>
+        <button
+          type="button"
+          onClick={() => formFiltrosRef.current.submitForm()}
+        >
           <img className={styles.search} src={Search} alt="Procurar" />
         </button>
       </div>
       <div className={styles.form_container}>
-        <form ref={formFiltrosRef} className={styles.form_sub_container}>
+        <Form
+          ref={formFiltrosRef}
+          className={styles.form_sub_container}
+          onSubmit={buscarLiquidacoes}
+        >
           <CustomizeSelect
             name="rota"
             list={listaRotas}
@@ -118,21 +130,39 @@ const Main = () => {
             readOnly={true}
             defaultValue={status[1]}
           />
-          <CustomizeInput
-            name="dataEmissao"
-            label="Data de Emissão:"
-            type="date"
-            isRequired={false}
-            readOnly={false}
-          />
-          <CustomizeInput
-            name="dataLiberacao"
-            label="Data de Liberação:"
-            type="date"
-            isRequired={false}
-            readOnly={false}
-          />
-        </form>
+          <div className={styles.date_container}>
+            <CustomizeInput
+              name="dataEmissaoInicial"
+              label="Data de Emissão:"
+              type="date"
+              isRequired={false}
+              readOnly={false}
+            />
+            <span>à</span>
+            <CustomizeInput
+              name="dataEmissaoFinal"
+              type="date"
+              isRequired={false}
+              readOnly={false}
+            />
+          </div>
+          <div className={styles.date_container}>
+            <CustomizeInput
+              name="dataLiberacaoInicial"
+              label="Data de Liberação:"
+              type="date"
+              isRequired={false}
+              readOnly={false}
+            />
+            <span>à</span>
+            <CustomizeInput
+              name="dataLiberacaoFinal"
+              type="date"
+              isRequired={false}
+              readOnly={false}
+            />
+          </div>
+        </Form>
       </div>
       <div className={styles.grid_container}>
         <CustomizeGrid

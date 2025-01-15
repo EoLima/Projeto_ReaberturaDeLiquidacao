@@ -21,17 +21,26 @@ export const LiquidacoesProvider = ({ children }) => {
   const [listaLiquidacoes, setListaLiquidacoes] = useState([]);
 
   const buscarLiquidacoes = async () => {
-    const formElements = new FormData(formFiltrosRef.current);
-    const values = Object.fromEntries(formElements.entries());
-    const { tipo, status, dataEmissao, dataLiberacao, rota, motorista } =
-      values;
+    const {
+      tipo,
+      status,
+      dataEmissaoInicial,
+      dataEmissaoFinal,
+      dataLiberacaoInicial,
+      dataLiberacaoFinal,
+      rota,
+      motorista,
+    } = formFiltrosRef.current.getData();
+
     try {
       setIsLoading(true);
       const response = await listarLiquidacoes(
         tipo ? tipo : 1,
         status ? status : 1,
-        dataEmissao,
-        dataLiberacao,
+        dataEmissaoInicial,
+        dataEmissaoFinal,
+        dataLiberacaoInicial,
+        dataLiberacaoFinal,
         rota,
         motorista
       );

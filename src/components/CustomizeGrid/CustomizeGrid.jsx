@@ -1,3 +1,4 @@
+import styles from "./CustomizeGrid.module.css";
 import { AgGridReact } from "ag-grid-react";
 import {
   AllCommunityModule,
@@ -7,7 +8,7 @@ import {
 import { useEffect, useState } from "react";
 ModuleRegistry.registerModules([AllCommunityModule]);
 
-const CustomizeGrid = ({ columsData, rowData, width, height, maxHeight }) => {
+const CustomizeGrid = ({ columsData, rowData, width, height }) => {
   const [rowDataState, setRowDataState] = useState([]);
   const [colunsDataState, setColunsDataState] = useState([]);
 
@@ -31,15 +32,7 @@ const CustomizeGrid = ({ columsData, rowData, width, height, maxHeight }) => {
   };
 
   return (
-    <div
-      style={{
-        width: width ? width : "95%",
-        height: height ? height : 500,
-        maxHeight: maxHeight ? maxHeight : 500,
-        margin: 20,
-        textTransform: "uppercase",
-      }}
-    >
+    <div className={styles.grid_container}>
       <AgGridReact
         rowData={rowDataState}
         columnDefs={colunsDataState}
