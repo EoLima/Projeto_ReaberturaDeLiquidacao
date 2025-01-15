@@ -1,4 +1,4 @@
 .grid_container {
-  width: 95%;
-  height: 48vh;
+  width: 98%;
+  height: calc(100vh - 460px);
 }
